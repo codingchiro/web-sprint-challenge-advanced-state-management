@@ -22,10 +22,21 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What problem does the context API help solve?
+  Context API allows us to avoid prop drilling without the use of Redux. It is the best fit for where your codebase consists of lot of components that depend on a a single piece of date, nested deep in the component tree.
+
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+  Action - packets of info that contain an action type and data. It has 2 properties, type and payload. Actions are dispatched to our reducer.
+  Reducers- the ONLY place state is updated. Reducers take in 2 arguments, current state from the Redux store and action. Reducers will NEVER update state directly- they make a copy and return a new object.
+  Store- is the immutable state for our app. Because it is immutable, it is referred to as single source of truth'. The store holds everything that changes in our app.
+
 3. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+  React state is stored locally within a componenet, and must be passed down from parent to child via props. Redux uses application state, which is store globally in the store. Any component that needs access to it may subscribe to the store and gain access to that value. This centralizes all data but makes it very easy for a component to get the state it needs, without surrounding components knowing of its needs. I would use component state if my components were nested less than 3 levels deep, and I would use application state for anything larger than that.
+
 4. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+  Redux-thunk is a node package that allows use to make our reducer Asynchronous and make an API call from our action creators. thunk is a function that's returned by another function. The action-creator returned thunk has access to the dispatch function, so we can run an async function, like an API call, and inside the .then() we can dispatch an action. 
+
 5. What is your favorite state management system you've learned and this sprint? Please explain why!
+  My favorite state management system so far is the Context API. I honestly like it because I feel like I understand it better than the other options, because it reminds me of class components. It's simple and straightforward- and since I've never built super complex apps, it would fit all my current build needs.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
