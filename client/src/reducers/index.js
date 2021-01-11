@@ -1,9 +1,17 @@
 
 export const initialState = {
+    smurfs = [],
+    isLoading = true,
+    error = ''
 }
 
-const reducer = ()=>{
-}
+
+function reducer(state = initialState, action) {
+    switch(action.type) {
+      default:
+        return state;
+    }
+  }
 
 export default reducer;
 
